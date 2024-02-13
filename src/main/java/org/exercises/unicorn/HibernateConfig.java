@@ -1,4 +1,4 @@
-package org.example;
+package org.exercises.unicorn;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package org.example;
+package org.exercises.unicorn;
 
 import jakarta.persistence.EntityManagerFactory;
 
@@ -12,7 +12,7 @@ public class Main {
         Unicorn unicorn1 = new Unicorn("Jonas", 30, 72);
         unicornDAO.save(unicorn1);
 
-        Unicorn unicorn2 = new Unicorn("Tobias", 34, 68);
+        Unicorn unicorn2 = new Unicorn("Tobias", 34, 0);
         unicornDAO.save(unicorn2);
 
         Unicorn unicorn3 = new Unicorn("Finn", 63, 56);
@@ -25,7 +25,10 @@ public class Main {
 
         Unicorn unicorn3FromDB = unicornDAO.findById(3);
         System.out.println("Unicorn from DB: " + unicorn3FromDB.getName());
+/*
+        unicornDAO.delete(5);
+        unicornDAO.delete(11);
 
-        unicornDAO.delete(1);
+ */
     }
 }

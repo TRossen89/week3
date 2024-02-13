@@ -1,4 +1,4 @@
-package org.example;
+package org.exercises.unicorn;
 
 
 import jakarta.persistence.*;
@@ -13,11 +13,12 @@ public class Unicorn {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "age")
     private int age;
+
 
     @Column(name = "power_strength")
     private int powerStrength;
