@@ -3,6 +3,9 @@ package org.exercises.student;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.type.descriptor.java.CharacterArrayJavaType;
+
+import java.io.IOException;
 
 @Entity
 @Table(name = "student")
@@ -30,6 +33,29 @@ public class Student {
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+    }
+
+
+    @PrePersist
+    public void verifyEmail() throws RuntimeException{
+
+
+        try{
+            String[] partToVerify = this.email.split("@");
+
+            if(partToVerify[partToVerify.length-1].equals("hotmail.com")||partToVerify[partToVerify.length-1].equals("gmail.com")){
+                System.out.println("Email is verified");
+            }
+            else {
+                throw new RuntimeException("Email not verified");
+            }
+
+        }
+        catch (Exception e){
+            throw new RuntimeException("Email not verified");
+        }
+
+
     }
 
     public int getId() {

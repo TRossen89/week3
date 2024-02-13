@@ -25,10 +25,7 @@ public class Main {
 
         Unicorn unicorn3FromDB = unicornDAO.findById(3);
         System.out.println("Unicorn from DB: " + unicorn3FromDB.getName());
-/*
-        unicornDAO.delete(5);
-        unicornDAO.delete(11);
 
- */
+        unicornDAO.delete(1);
     }
 }
