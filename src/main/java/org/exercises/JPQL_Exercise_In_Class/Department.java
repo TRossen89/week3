@@ -1,4 +1,4 @@
-package org.exercises.employee;
+package org.exercises.JPQL_Exercise_In_Class;
 
 public enum Department {
 

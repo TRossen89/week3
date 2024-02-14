@@ -1,6 +1,5 @@
-package org.exercises.student;
+package org.exercises.part3_JPA_Lifecycle_and_Annotations;
 
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

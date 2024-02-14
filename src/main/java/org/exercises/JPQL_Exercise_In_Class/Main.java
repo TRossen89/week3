@@ -1,9 +1,7 @@
-package org.exercises.employee;
+package org.exercises.JPQL_Exercise_In_Class;
 
 import jakarta.persistence.*;
-import org.exercises.employee.HibernateConfig;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class Main {
@@ -38,7 +36,6 @@ public class Main {
         System.out.println("\n----------------------------");
         System.out.println("\nEmployees from Marketing: ");
         listOfEmployeesFromMarketing.forEach(System.out::println);
-
 
 
 

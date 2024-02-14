@@ -1,7 +1,6 @@
-package org.exercises.student;
+package org.exercises.part3_JPA_Lifecycle_and_Annotations;
 
 import jakarta.persistence.EntityManagerFactory;
-import org.exercises.unicorn.Unicorn;
 
 import java.util.List;
 

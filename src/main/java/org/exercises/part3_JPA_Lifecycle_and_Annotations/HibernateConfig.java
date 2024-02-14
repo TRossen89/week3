@@ -1,8 +1,7 @@
-package org.exercises.student;
+package org.exercises.part3_JPA_Lifecycle_and_Annotations;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
-import org.exercises.unicorn.Unicorn;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

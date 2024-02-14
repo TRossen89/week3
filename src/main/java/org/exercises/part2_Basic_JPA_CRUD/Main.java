@@ -1,4 +1,4 @@
-package org.exercises.unicorn;
+package org.exercises.part2_Basic_JPA_CRUD;
 
 import jakarta.persistence.EntityManagerFactory;
 

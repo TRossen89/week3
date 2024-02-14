@@ -1,4 +1,5 @@
-package org.exercises.unicorn;
+package org.exercises.JPQL_Exercise_In_Class;
+
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
+
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class HibernateConfig {
 
@@ -22,7 +24,7 @@ public class HibernateConfig {
             props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/weekthree?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
-            props.put("hibernate.show_sql", "true"); // show sql in console
+            props.put("hibernate.show_sql", "false"); // show sql in console
             props.put("hibernate.format_sql", "true"); // format sql in console
             props.put("hibernate.use_sql_comments", "true"); // show sql comments in console
 
@@ -54,8 +56,8 @@ public class HibernateConfig {
 
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
-        configuration.addAnnotatedClass(Unicorn.class);
-        //configuration.addAnnotatedClass(Student.class);
+        //configuration.addAnnotatedClass(Unicorn.class);
+        configuration.addAnnotatedClass(Employee.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
@@ -63,3 +65,4 @@ public class HibernateConfig {
         return entityManagerFactory;
     }
 }
+
