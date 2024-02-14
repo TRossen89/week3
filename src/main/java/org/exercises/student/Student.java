@@ -3,9 +3,7 @@ package org.exercises.student;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import org.hibernate.type.descriptor.java.CharacterArrayJavaType;
 
-import java.io.IOException;
 
 @Entity
 @Table(name = "student")
@@ -25,7 +23,7 @@ public class Student {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     public Student(String firstName, String lastName, int age, String email) {
@@ -39,23 +37,16 @@ public class Student {
     @PrePersist
     public void verifyEmail() throws RuntimeException{
 
+            String[] partToVerify = this.email.split(" ");
 
-        try{
-            String[] partToVerify = this.email.split("@");
-
-            if(partToVerify[partToVerify.length-1].equals("hotmail.com")||partToVerify[partToVerify.length-1].equals("gmail.com")){
+            if(partToVerify[partToVerify.length-1].equals("hotmail.com")
+                    ||
+                    partToVerify[partToVerify.length-1].equals("gmail.com")){
                 System.out.println("Email is verified");
             }
             else {
                 throw new RuntimeException("Email not verified");
             }
-
-        }
-        catch (Exception e){
-            throw new RuntimeException("Email not verified");
-        }
-
-
     }
 
     public int getId() {

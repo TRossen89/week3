@@ -13,25 +13,25 @@ public class Main {
         entityManagerFactory = HibernateConfig.getEntityManagerFactoryConfig();
 
         // Transient state
-        Student student = new Student("Tobias", "Rossen", 34, "tobiasTest@gmail.com");
+        Student student = new Student("Tobias", "Rossen", 34, "tobiasTest@ gmail.com");
         // Managed and then detached state
         createStudent(student);
 
         // Transient state
-        Student student1 = new Student("Clarence", "Seedorf", 47, "seedorfTest@hotmail.com");
+        Student student1 = new Student("Clarence", "Seedorf", 47, "seedorfTest@ hotmail.com");
         // Managed and then detached state
         createStudent(student1);
 
         // Transient state
-        Student student2 = new Student("Nana", "Juhlin", 16, "nanaTest@hotmail.com");
+        Student student2 = new Student("Nana", "Juhlin", 16, "nanaTest@ hotmail.com");
         // Managed and then detached state
         createStudent(student2);
 
-        Student student3 = new Student("Lykke", "Andersen", 63, "lykkeTesthotmail.com");
+        Student student3 = new Student("Lykke", "Andersen", 63, "lykkeTest hotmail.com");
         // Managed and then detached state
         createStudent(student3);
 
-        Student student4 = new Student("Jonas", "Rossen", 30, "jonasTest@homail.com");
+        Student student4 = new Student("Jonas", "Rossen", 30, "jonasTest@ homail.com");
         // Managed and then detached state
         createStudent(student4);
 
@@ -62,8 +62,14 @@ public class Main {
 
         try (var em = entityManagerFactory.createEntityManager()) {
             em.getTransaction().begin();
-            // Managed state
-            em.persist(student);
+
+            try{
+                // Managed state
+                em.persist(student);
+            }catch (RuntimeException e){
+                System.out.println(e);
+            }
+
 
             // Detached state
             em.getTransaction().commit();
@@ -87,10 +93,10 @@ public class Main {
         try (var em = entityManagerFactory.createEntityManager()) {
             em.getTransaction().begin();
 
-            // DB and then managed
+            // DB, managed and then transient?
             var studentInDB = em.find(Student.class, id);
 
-            //Managed
+            //Transient?
             studentInDB.setFirstName(student.getFirstName());
             studentInDB.setLastName(student.getLastName());
             studentInDB.setAge(student.getAge());
