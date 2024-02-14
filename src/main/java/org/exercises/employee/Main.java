@@ -3,6 +3,7 @@ package org.exercises.employee;
 import jakarta.persistence.*;
 import org.exercises.employee.HibernateConfig;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Main {
@@ -57,8 +58,36 @@ public class Main {
         listOfEmployeesWithEN.forEach(System.out::println);
 
 
+        // Updating employee
+
+        // With named parameters
+        em.getTransaction().begin();
+        Query query8 = em.createQuery("UPDATE Employee a SET a.salary = :s WHERE a.id = :id").
+                setParameter("s", 52000)
+                .setParameter("id", 4);
+        query8.executeUpdate();
+        em.getTransaction().commit();
+
+        // With positional parameters
+        em.getTransaction().begin();
+        em.createQuery("UPDATE Employee a SET a.salary = ?1 WHERE a.id = ?2").
+                setParameter(1, 80000)
+                .setParameter(2, 2).executeUpdate();
+        em.getTransaction().commit();
 
 
+        // Getting average salary
+        Query query10 = em.createQuery("SELECT avg(a.salary + 0.0) FROM Employee a");
+        List<Double> result = query10.getResultList();
+        System.out.println("--------------------------\n");
+        System.out.println("Average: " + result.get(0));
+
+
+        // Getting sum of all salaries
+        Query query11 = em.createQuery("SELECT sum(a.salary) FROM Employee a");
+        List<Integer> resultSum = query11.getResultList();
+        System.out.println("--------------------------\n");
+        System.out.println("Sum: " + resultSum.get(0));
 
     }
 }

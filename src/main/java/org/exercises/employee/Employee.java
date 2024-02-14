@@ -7,6 +7,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "employee")
 @NoArgsConstructor
+/*
+@NamedQueries({
+        @NamedQuery()
+})
+
+ */
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
