@@ -21,10 +21,11 @@ public class Employee {
     @Column(name = "salary")
     Double salary;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "department")
-    String department;
+    Department department;
 
-    public Employee(String firstName, String lastName, String email, Double salary, String department) {
+    public Employee(String firstName, String lastName, String email, Double salary, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -72,11 +73,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
