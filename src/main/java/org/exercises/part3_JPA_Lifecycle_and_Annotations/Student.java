@@ -37,7 +37,10 @@ public class Student {
     @PrePersist
     public void verifyEmail() throws RuntimeException{
 
-            String[] partToVerify = this.email.split(" ");
+        boolean emailContainsAt = this.email.contains("@");
+
+        if (emailContainsAt){
+            String[] partToVerify = this.email.split("@");
 
             if(partToVerify[partToVerify.length-1].equals("hotmail.com")
                     ||
@@ -47,6 +50,11 @@ public class Student {
             else {
                 throw new RuntimeException("Email not verified");
             }
+
+        }
+        else {
+            throw new RuntimeException("Email not verified");
+        }
     }
 
     public int getId() {

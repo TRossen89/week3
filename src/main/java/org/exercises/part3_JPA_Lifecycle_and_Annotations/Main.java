@@ -68,8 +68,6 @@ public class Main {
             }catch (RuntimeException e){
                 System.out.println(e);
             }
-
-
             // Detached state
             em.getTransaction().commit();
         }
