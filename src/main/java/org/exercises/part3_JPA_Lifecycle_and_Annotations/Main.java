@@ -12,27 +12,34 @@ public class Main {
         entityManagerFactory = HibernateConfig.getEntityManagerFactoryConfig();
 
         // Transient state
-        Student student = new Student("Tobias", "Rossen", 34, "tobiasTest@ gmail.com");
+        Student student = new Student("Tobias", "Rossen", 34, "tobiasTest@gmail.com");
         // Managed and then detached state
         createStudent(student);
 
+
         // Transient state
-        Student student1 = new Student("Clarence", "Seedorf", 47, "seedorfTest@ hotmail.com");
+        Student student1 = new Student("Clarence", "Seedorf", 47, "seedorfTest@hotmail.com");
         // Managed and then detached state
         createStudent(student1);
 
+
         // Transient state
-        Student student2 = new Student("Nana", "Juhlin", 16, "nanaTest@ hotmail.com");
+        Student student2 = new Student("Nana", "Juhlin", 16, "nanaTest@hotmail.com");
         // Managed and then detached state
         createStudent(student2);
 
-        Student student3 = new Student("Lykke", "Andersen", 63, "lykkeTest hotmail.com");
+
+        // Transient state
+        Student student3 = new Student("Lykke", "Andersen", 63, "lykkeTesthotmail.com");
         // Managed and then detached state
         createStudent(student3);
 
-        Student student4 = new Student("Jonas", "Rossen", 30, "jonasTest@ homail.com");
+
+        // Transient state
+        Student student4 = new Student("Jonas", "Rossen", 30, "jonasTest@homail.com");
         // Managed and then detached state
         createStudent(student4);
+
 
         // Managed and then detached state
         updateStudent(1,student1);
@@ -46,12 +53,12 @@ public class Main {
         // Managed and then removed
         deleteStudent(1);
 
-        // DB, managed, detached, transient
+        // DB, managed, detached
         List<Student> listOfStudents = readAllStudents();
 
         System.out.println("\nAll students:");
         
-        // Transient entities
+        // Detached entities
         listOfStudents.forEach(System.out::println);
 
 
@@ -65,6 +72,7 @@ public class Main {
             try{
                 // Managed state
                 em.persist(student);
+
             }catch (RuntimeException e){
                 System.out.println(e);
             }
