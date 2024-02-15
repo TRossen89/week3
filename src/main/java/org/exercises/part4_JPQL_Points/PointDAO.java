@@ -1,6 +1,5 @@
 package org.exercises.part4_JPQL_Points;
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
@@ -57,6 +56,15 @@ public class PointDAO {
             List<Point> results = query.getResultList();
 
             return results;
+        }
+    }
+
+    public void deleteAllRowsInTable() {
+
+        try (var em = entityManagerFactory.createEntityManager()) {
+            em.getTransaction().begin();
+            em.createQuery("DELETE FROM Point").executeUpdate();
+            em.getTransaction().commit();
         }
     }
 }

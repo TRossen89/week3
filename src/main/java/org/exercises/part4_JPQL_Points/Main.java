@@ -17,8 +17,12 @@ public class Main {
 
         PointDAO pointDAO = new PointDAO(entityManagerFactory);
 
+        pointDAO.deleteAllRowsInTable();
+
         // Store 1000 Point objects in the database:
         pointDAO.storePoints(1000);
+
+
 
 
         // Find the number of Point objects in the database:
@@ -33,5 +37,6 @@ public class Main {
         // Retrieve all the Point objects from the database:
         List<Point> listOfPoints = pointDAO.getAllPoints();
         listOfPoints.forEach(System.out::println);
+
     }
 }

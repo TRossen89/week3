@@ -16,25 +16,57 @@ public class PointDAOTest {
 
 
     EntityManagerFactory emf;
-    EntityManager em;
     PointDAO pointDAO;
+    int numberOfPoints;
 
     @BeforeAll
     void beforeAll(){
         emf = HibernateConfig.getEntityManagerFactoryConfig();
-        em = emf.createEntityManager();
         pointDAO = new PointDAO(emf);
+
+        pointDAO.deleteAllRowsInTable();
+        numberOfPoints = 10;
+        pointDAO.storePoints(numberOfPoints);
     }
 
 
     @Test
+    void countNumberOfPointsTest(){
+
+        // Arrange
+        long expected = numberOfPoints;
+
+        // Act
+        long actual = pointDAO.countNumberOfPoints();
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getAverageXTest(){
+
+        // Arrange
+        Double expectedAverage = 0.0;
+
+        for (int i = 0; i < numberOfPoints; i++) {
+            expectedAverage += i;
+        }
+        expectedAverage = expectedAverage/numberOfPoints;
+
+
+        // Act
+        Double actualAverage = pointDAO.getAverageX();
+
+
+        // Assert
+        assertEquals(expectedAverage, actualAverage);
+
+    }
+    @Test
     void getAllPointsTest(){
 
         // Arrange
-        int numberOfPoints = 10;
-
-        // If no points has been stored in DB yet:
-        pointDAO.storePoints(numberOfPoints);
 
         List<Point> expected = new ArrayList<>();
         for (int i = 0; i < numberOfPoints; i++) {
@@ -51,11 +83,15 @@ public class PointDAOTest {
         assertEquals(expected.get(2).getX(), actual.get(2).getX());
         assertEquals(expected.get(3).getY(), actual.get(3).getY());
 
+        // Uncomment the asserEquals()-line below and the test will fail. That's because in setup() I delete all rows,
+        // I don't truncate or drop the table. I don't know how to do that with JPA/JPQL
+
+        // assertEquals(expected.get(3).getId(), actual.get(3).getId());
+
     }
 
     @AfterAll
     void closing(){
-        em.close();
         emf.close();
     }
 
