@@ -5,7 +5,7 @@ Tobias
 
 ## Et spørgsmål: 
 
-1) Jørg sagde noget med at det var et problem at nogle af os havde lavet et nyt
+1) Jörg sagde noget med at det var et problem at nogle af os havde lavet et nyt
    repository for hver aflevering. Er det et problem på den måde jeg har gjort det?
    Jeg kan ikke helt se hvad problemet skulle være, men skal nok lave et repository
    med alle afleveringer til næste gang, hvis det er bedre.  
