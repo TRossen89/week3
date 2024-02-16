@@ -44,7 +44,7 @@ public class Main {
         // Managed and then detached state
         updateStudent(1,student1);
 
-        // DB, managed, detached, transient ??
+        // Managed, detached
         Student studentRead1 = readStudent(1);
         Student studentRead2 = readStudent(2);
 
@@ -53,12 +53,12 @@ public class Main {
         // Managed and then removed
         deleteStudent(1);
 
-        // DB, managed, detached
+        // Managed, detached
         List<Student> listOfStudents = readAllStudents();
 
         System.out.println("\nAll students:");
         
-        // Detached entities
+        // Detached/Transient? entities
         listOfStudents.forEach(System.out::println);
 
 
@@ -98,16 +98,16 @@ public class Main {
         try (var em = entityManagerFactory.createEntityManager()) {
             em.getTransaction().begin();
 
-            // DB, managed and then transient?
+            // Managed and then detached or transient?
             var studentInDB = em.find(Student.class, id);
 
-            //Transient?
+            //Detached or transient?
             studentInDB.setFirstName(student.getFirstName());
             studentInDB.setLastName(student.getLastName());
             studentInDB.setAge(student.getAge());
             studentInDB.setEmail(student.getEmail());
 
-            // Managed, DB
+            // Managed
             em.merge(studentInDB);
 
             // Detached
@@ -127,6 +127,7 @@ public class Main {
 
             // Removed
             em.getTransaction().commit();
+
         }
     }
 
