@@ -22,6 +22,7 @@ Tobias
  - Har ikke lavet bonusopgaver i part 2
  - I part to mangler jeg at lave en metode med en PreUpdate annotation
  - Har ikke lavet den Challenge der var i part 5
- - I part 6 har jeg ikke svaret på spørgsmål om hvad fordele er ved DAO, men det er i hvert fald
-   noget med at det gør koden mere overskuelig og at det gør koden nemmere at teste.
+ - I part 6 har jeg ikke svaret på spørgsmålet om hvad fordelene er ved DAO (men altså
+   det er i hvert fald noget med at det gør koden mere overskuelig
+   og at det gør koden nemmere at teste
 - I part 8 har jeg ikke lavet Unit tests 
