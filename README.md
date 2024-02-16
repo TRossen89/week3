@@ -1,9 +1,9 @@
-*** Navn:
+## Navn:
 
 Tobias
 
 
-*** Et spørgsmål: 
+## Et spørgsmål: 
 
 1) Jørg sagde noget med at det var et problem at nogle af os havde lavet et nyt
    repository for hver aflevering. Er det et problem på den måde jeg har gjort det?
@@ -11,7 +11,7 @@ Tobias
    med alle afleveringer til næste gang, hvis det er bedre.  
 
 
- *** Øvelser inkluderet og status på øvelserne: 
+ ## Øvelser inkluderet og status på øvelserne: 
 
  Alle øvelser er inkluderet. Dvs. øvelser part 1-8. Der er også inkluderet nogle øvelser, som vi lavede i klassen. 
   
